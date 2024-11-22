@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore event pictures from the last two years curated by the PhD students at the University of Pretoria's Department of Economics.">
+    <title>TUKS PhD's Page (Economics)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            font-family: 'Lora', serif;
+            background-color: #F7F9FB;
+            font-weight: 300;
+            margin: 0;
+            padding: 0;
+            color: black;
+            height: 100%;
+        }
+
+        header {
+            background-color: #011F5B;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .content {
+            flex: 1;
+            padding-top: 50px;
+            background-color: #F7F9FB;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 300;
+        }
+
+        header nav a:hover,
+        header nav a.active {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+
+        header nav a:hover {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+        .header-container h1 {
+            font-weight: bold;
+        }
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6em;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        header h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            margin: 5px 0 0;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .gallery-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background-color: var(--background-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+.calendar-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 6 columns */
+    grid-template-rows: repeat(6, 1fr);    /* 2 rows */
+    gap: 20px;
+}
+
+.month {
+    background: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    text-align: center;
+}
+
+.month h3 {
+    font-size: 16px;
+    color: #0d47a1;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.day {
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 8px;
+    text-align: left;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.day .date-number {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.day .events {
+    font-size: 12px;
+    color: #0d47a1;
+    overflow-y: auto;
+    max-height: 40px;
+}
+
+.day:hover {
+    background: #0d47a1;
+    color: white;
+    border-color: #0d47a1;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.modal-content textarea,
+.modal-content input {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.modal-buttons button {
+    background-color: #0d47a1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.modal-buttons button:hover {
+    background-color: #1976d2;
+}
+
+.modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #e53935;
+}
+
+        .container1 h3 {
+            margin: 0;
+            padding: 10px;
+            background-color: var(--main-color);
+            color: #011F5B;
+            text-align: center;
+        }
+
+        .container1 h1 {
+            margin: 0;
+            padding: 10px;
+            background-color: var(--main-color);
+            color: #011F5B;
+            text-align: center;
+            border-bottom: 5px ridge #C50900;
+        }
+
+        footer {
+            font-family: 'Roboto', sans-serif;
+            background-color: #011F5B;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 0px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div>
+            <h1>Economics Ph.D Students</h1>
+            <h2>University of Pretoria</h2>
+        </div>
+        <nav>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/Home.html">Home</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/team.html">Team</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/JobMarket.html">Job Market</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/WorkPpaer.html">Papers</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/Data.html">Economic Data</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/books.html">Virtual-Library</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/gallery.html">Useful Templates</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/coll.html" class="active">PhD Calendar 2025</a>
+        </nav>
+    </div>
+</header>
+
+<div class="content">
+    <div class="container1">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1> PhD Calendar 2025</h1>
+        <p></p>
+</div>
+
+<div class="calendar-container">
+        <div class="calendar" id="calendar"></div>
+</div>
+
+    <!-- Modal -->
+<div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalDate"></h3>
+            <textarea id="eventInput" placeholder="Add events (one per line)..."></textarea>
+            <input type="password" id="password" placeholder="Enter password">
+            <div class="modal-buttons">
+                <button id="saveEvent">Save</button>
+                <button id="deleteEvent">Delete All</button>
+            </div>
+        </div>
+ </div>
+
+
+<!-- Modal for Adding/Deleting Events -->
+<div id="eventModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3 id="modalDate"></h3>
+            <textarea id="eventInput" placeholder="Enter events, one per line..."></textarea>
+            <input type="password" id="password" placeholder="Password">
+            <div class="modal-buttons">
+                <button id="saveEvent">Save Events</button>
+                <button id="deleteEvent">Delete Events</button>
+            </div>
+        </div>
+</div>
+
+<script>
+const PASSWORD = "admin"; // Simple password
+
+// Retrieve stored events from localStorage or initialize an empty object
+let events = JSON.parse(localStorage.getItem("events")) || {};
+
+function generateCalendar(year) {
+    const calendar = document.getElementById("calendar");
+    calendar.innerHTML = ""; // Clear existing content
+    const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    months.forEach((month, index) => {
+        const monthDiv = document.createElement("div");
+        monthDiv.classList.add("month");
+
+        const title = document.createElement("h3");
+        title.textContent = month;
+        monthDiv.appendChild(title);
+
+        const daysDiv = document.createElement("div");
+        daysDiv.classList.add("days");
+
+        const daysInMonth = new Date(year, index + 1, 0).getDate();
+
+        for (let day = 1; day <= daysInMonth; day++) {
+            const dateKey = `${year}-${index + 1}-${day}`;
+            const dayDiv = document.createElement("div");
+            dayDiv.classList.add("day");
+
+            const dateNumber = document.createElement("div");
+            dateNumber.classList.add("date-number");
+            dateNumber.textContent = day;
+
+            const eventList = document.createElement("div");
+            eventList.classList.add("events");
+
+            if (events[dateKey]) {
+                events[dateKey].forEach(event => {
+                    const p = document.createElement("p");
+                    p.textContent = event;
+                    eventList.appendChild(p);
+                });
+            }
+
+            dayDiv.appendChild(dateNumber);
+            dayDiv.appendChild(eventList);
+
+            dayDiv.addEventListener("click", () => openModal(dateKey));
+            daysDiv.appendChild(dayDiv);
+        }
+
+        monthDiv.appendChild(daysDiv);
+        calendar.appendChild(monthDiv);
+    });
+}
+
+function openModal(dateKey) {
+    const modal = document.getElementById("eventModal");
+    const modalDate = document.getElementById("modalDate");
+    const eventInput = document.getElementById("eventInput");
+
+    modalDate.textContent = `Events for ${dateKey}`;
+    eventInput.value = events[dateKey] ? events[dateKey].join("\n") : "";
+    modal.dataset.date = dateKey;
+    modal.style.display = "block";
+}
+
+function saveEvents() {
+    const modal = document.getElementById("eventModal");
+    const dateKey = modal.dataset.date;
+    const input = document.getElementById("eventInput").value.trim();
+    const password = document.getElementById("password").value;
+
+    if (password === PASSWORD) {
+        events[dateKey] = input ? input.split("\n") : [];
+        localStorage.setItem("events", JSON.stringify(events)); // Save to localStorage
+        modal.style.display = "none";
+        generateCalendar(new Date().getFullYear());
+    } else {
+        alert("Incorrect password!");
+    }
+}
+
+function deleteEvents() {
+    const modal = document.getElementById("eventModal");
+    const dateKey = modal.dataset.date;
+    const password = document.getElementById("password").value;
+
+    if (password === PASSWORD) {
+        delete events[dateKey];
+        localStorage.setItem("events", JSON.stringify(events)); // Update localStorage
+        modal.style.display = "none";
+        generateCalendar(new Date().getFullYear());
+    } else {
+        alert("Incorrect password!");
+    }
+}
+
+// Event Listeners
+document.querySelector(".modal .close").addEventListener("click", () => {
+    document.getElementById("eventModal").style.display = "none";
+});
+
+document.getElementById("saveEvent").addEventListener("click", saveEvents);
+document.getElementById("deleteEvent").addEventListener("click", deleteEvents);
+
+// Generate Calendar for current year
+generateCalendar(new Date().getFullYear());
+</script>
+
+
+<footer>
+    <p>cochairs@gmail.com for queries</p>
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

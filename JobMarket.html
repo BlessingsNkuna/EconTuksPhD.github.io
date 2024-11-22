@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUKS PhD's Page (Economics)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            font-family: 'Lora', serif;
+            background-color: #F7F9FB;
+            font-weight: 300;
+            margin: 0;
+            padding: 0;
+            color: black;
+            height: 100%;
+        }
+
+        .bio {
+            font-size: 19px;
+            color: #011F5B;
+            font-weight: 300;
+            background-color: white;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #011F5B;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .content {
+            flex: 1;
+            padding-top: 100px;
+            background-color: #F7F9FB;
+            align-items: left;
+            text-align: left;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 300;
+        }
+
+        header nav a:hover,
+        header nav a.active {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+
+        header nav a:hover {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+        .header-container h1 {
+            font-weight: bold;
+        }
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6em;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        header h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            margin: 5px 0 0;
+            font-weight: 300;
+        }
+
+        .container1 {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #F7F9FB;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container11 {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border: 0.5px groove #F7F9FB;
+        }
+
+        .container1 .header-title {
+            width: 100%;
+            font-size: 2.2em;
+            color: #011F5B;
+            text-align: left;
+            padding-bottom: 10px;
+            font-weight: 300;
+            border-bottom: 5px ridge #C50900;
+            background-color: #F7F9FB;
+        }
+
+        .container1 p {
+            font-weight: 300;
+            color: #011F5B;
+            text-align: left;
+            width: 100%;
+        }
+
+        .container1 c {
+            font-weight: 300;
+            color: white;
+            text-align: left;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 110%;
+            margin: 1px auto;
+            padding: 10px;
+            display: flex;
+            gap: 80px;
+            justify-content: left;
+        }
+
+        .staff {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .staff-member {
+            text-align: center;
+            max-width: 230px;
+            flex: 1 1 200px;
+        }
+
+        .staff-member img {
+            margin-top: 20px;
+            width: 80%;
+            height: auto;
+            transition: transform 0.3s ease;
+            border: 0.5px groove #F7F9FB;
+        }
+
+        .staff-member img:hover {
+            transform: scale(1.05);
+        }
+
+        .credentials {
+            margin-top: 10px;
+            font-size: 19px;
+            color: #F7F9FB;
+            font-weight: 300;
+            border-bottom: 2px solid #011F5B;
+            background-color: #011F5B;
+        }
+
+        .bio p {
+            margin: 10px 0;
+            font-size: 19px;
+            text-align: center;
+            color: #011F5B;
+            font-weight: 600;
+            background-color: white;
+            border-bottom: 0.1px solid grey;
+        }
+
+        .bio d {
+            margin: 10px 0;
+            font-size: 14px;
+            text-align:left;
+            color: #011F5B;
+            font-weight: 600;
+            background-color: white;
+            border-bottom: 0.1px solid grey;
+        }
+
+         .bio c {
+            margin: 10px 0;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+            background-color: white;
+        }
+
+        footer {
+            font-family: 'Roboto', sans-serif;
+            background-color: #011F5B;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .filter-container input {
+            padding: 10px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .filter-container button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #011F5B;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .filter-container button:hover {
+            transform: scale(1.05);
+        }
+
+        .filter-container button.active {
+            background-color: #ccc;
+        }
+
+        .results-count {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: 300;
+            color: #011F5B;
+            text-align: center;
+        }
+
+        .loading-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .loading-container img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            .container {
+                padding: 40px;
+                flex-direction: column;
+            }
+
+            .staff-member {
+                max-width: 100px;
+            }
+
+            .credentials, .occupation {
+                font-size: 12px;
+            }
+
+            .filter-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-container {
+                justify-content: center;
+            }
+        }
+    </style>
+    <script>
+        function showLoading() {
+            document.querySelector('.loading-container').style.display = 'flex';
+        }
+
+        function hideLoading() {
+            document.querySelector('.loading-container').style.display = 'none';
+        }
+
+        function updateResultsCount() {
+            const containers = document.querySelectorAll('.container11');
+            const visibleContainers = Array.from(containers).filter(container => container.style.display !== 'none');
+            const resultsCount = document.getElementById('resultsCount');
+            resultsCount.textContent = `${visibleContainers.length} result(s) found`;
+        }
+
+        function performAction(action, button) {
+            showLoading();
+            setTimeout(() => {
+                action();
+                hideLoading();
+                document.querySelectorAll('.filter-container button').forEach(btn => btn.classList.remove('active'));
+                if (button) button.classList.add('active');
+                updateResultsCount();
+            }, 700);
+        }
+
+        function searchFilter() {
+            performAction(() => {
+                const searchInput = document.getElementById('searchInput').value.toLowerCase();
+                const containers = document.querySelectorAll('.container11');
+
+                containers.forEach(container => {
+                    const text = container.innerText.toLowerCase();
+                    if (text.includes(searchInput)) {
+                        container.style.display = '';
+                    } else {
+                        container.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        function showAll(button) {
+            performAction(() => {
+                const containers = document.querySelectorAll('.container11');
+                containers.forEach(container => {
+                    container.style.display = '';
+                });
+            }, button);
+        }
+
+        function filterByStatus(status, button) {
+            performAction(() => {
+                const containers = document.querySelectorAll('.container11');
+
+                containers.forEach(container => {
+                    const text = container.innerText.toLowerCase();
+                    if (text.includes(status.toLowerCase())) {
+                        container.style.display = '';
+                    } else {
+                        container.style.display = 'none';
+                    }
+                });
+            }, button);
+        }
+
+        // Initialize the "See All" button as active and update the results count
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.filter-container button').classList.add('active');
+            updateResultsCount();
+
+            // Add event listener for "Enter" key press on search input
+            document.getElementById('searchInput').addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    searchFilter();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div>
+            <h1>Economics Ph.D Students</h1>
+            <h2>University of Pretoria</h2>
+        </div>
+        <nav>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/index.html">Home</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/team.html">Team</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/JobMarket.html" class="active">Ph.D Students</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/WorkPpaer.html">Ph.D Research</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/Data.html">Economic Data</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/books.html">Virtual-Library</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/gallery.html">Templates</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/coll.html">Year-Plan 2025</a>
+        </nav>
+    </div>
+</header>
+
+<div class="content">
+    <div class="container1">
+        <h2 class="header-title">Past and Current Ph.D Students</h2>
+        <p></p>
+        <div class="filter-container">
+            <div class="button-container">
+                <button onclick="showAll(this)">See All</button>
+                <button onclick="filterByStatus('complete', this)">Complete</button>
+                <button onclick="filterByStatus('in progress', this)">In Progress</button>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button onclick="searchFilter()">Search</button>
+            </div>
+        </div>
+        <div id="resultsCount" class="results-count"></div>
+    </div>
+
+    <div class="loading-container">
+        <img src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif" alt="Loading...">
+    </div>
+    <section class="container11">
+        <div class="container">
+            <div class="staff">
+                <div class="staff-member">
+                    <br>
+                    <br>
+                    <br>
+                    <img src="https://lh3.google.com/u/0/d/1UTvtVQNLaZVZ6j88xOcE3p_n4Ux0nL-_" alt="Letshego Mancoe">
+                    <div class="credentials">Brandon Meyer</div>
+                </div>
+            </div>
+            <div class="bio">
+                <p>Focus Area:</p>
+                <br> International Trade | Applied Econometrics | Game Theory | Microeconomics
+                <br>
+                <br>
+                <p>Links:</p>
+                <br> <d>Website</d>:
+                <br> <d>Email</d>: brandon.meyer@tuks.co.za
+                <br> <d>LinkedIn</d>: https://www.linkedin.com/in/brandon-meyer-economis-911t/
+                <br> <d>Google Scholar</d>:
+                <br> <d>ORCID</d>:
+                <br> <d>Research Gate</d>:
+                <br>
+                <br> <c>-----------------------------------------------------------------------------------------------------</c>
+            </div>
+        </div>
+    </section>
+
+    <section class="container11">
+        <div class="container">
+            <div class="staff">
+                <div class="staff-member">
+                    <br>
+                    <br>
+                    <br>
+                    <img src="https://lh3.google.com/u/0/d/1M7Wa2dEkYkZfdVSrDmWKTTb4rxmbIjqR" alt="Megan Shongwe">
+                    <div class="credentials">Megan Shongwe</div>
+                </div>
+            </div>
+            <div class="bio">
+                <p>Focus Area:</p>
+                <br> Intergenerational Mobility | Climate Change | Development Economics
+                <br>
+                <br>
+                <p>Links:</p>
+                <br> <d>Website</d>:
+                <br> <d>Email</d>: megan.shongwe@tuks.co.za
+                <br> <d>LinkedIn</d>: linkedin.com/in/megan-shongwe-a5263073
+                <br> <d>Google Scholar</d>:
+                <br> <d>ORCID</d>:
+                <br> <d>Research Gate</d>:
+                <br>
+                <br> <c>-----------------------------------------------------------------------------------------------------</c>
+            </div>
+        </div>
+    </section>
+
+    <section class="container11">
+        <div class="container">
+            <div class="staff">
+                <div class="staff-member">
+                    <br>
+                    <br>
+                    <br>
+                    <img src="https://lh3.google.com/u/0/d/14iKwx5fZzasxEaOIXKYDd_p3f9PmXDrn" alt="Mphatso Ackim">
+                    <div class="credentials">Mphatso Ackim</div>
+                </div>
+            </div>
+            <div class="bio">
+                <p>Focus Area:</p>
+                <br> Monetary Policy | Fiscal Policy
+                <br>
+                <br>
+                <p>Links:</p>
+                <br> <d>Website</d>:
+                <br> <d>Email</d>: mphatso.ackim@tuks.co.za
+                <br> <d>LinkedIn</d>: linkedin.com/in/mphatso-elias-ackim-02010764
+                <br> <d>Google Scholar</d>:
+                <br> <d>ORCID</d>:
+                <br> <d>Research Gate</d>:
+                <br>
+                <br> <c>-----------------------------------------------------------------------------------------------------</c>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container11">
+        <div class="container">
+            <div class="staff">
+                <div class="staff-member">
+                    <img src="https://lh3.google.com/u/0/d/15T2uqmubtMI5EnFqRNptAOcbH5Is1agL" alt="Letshego Mancoe">
+                    <div class="credentials">Letshego Mancoe</div>
+                </div>
+            </div>
+            <div class="bio">
+                <p>Focus Area:</p>
+                <br> Intergenerational Mobility | Public Policy | Development Economics
+                <br>
+                <br>
+                <p>Links:</p>
+                <br> <d>Website</d>:
+                <br> <d>Email</d>: mancoe.l@tuks.co.za
+                <br> <d>LinkedIn</d>: linkedin.com/in/letshego-mancoe-6505b0210
+                <br> <d>Google Scholar</d>:
+                <br> <d>ORCID</d>:
+                <br> <d>Research Gate</d>:
+                <br>
+                <br> <c>-----------------------------------------------------------------------------------------------------</c>
+            </div>
+        </div>
+    </section>
+
+  <section class="container11">
+        <div class="container">
+            <div class="staff">
+                <div class="staff-member">
+                    <br>
+                    <br>
+                    <br>
+                    <img src="https://lh3.google.com/u/0/d/1U8At8MQ430ekggIte5t-9s6kQcSf77pq" alt="Letshego Mancoe">
+                    <div class="credentials">Christian Hamann</div>
+                </div>
+            </div>
+            <div class="bio">
+                <p>Focus Area:</p>
+                <br> Inequality | Social Mobility | Socio-spatial Change
+                <br>
+                <br>
+                <p>Links:</p>
+                <br> <d>Website</d>:
+                <br> <d>Email</d>: chamann9@gmail.com
+                <br> <d>LinkedIn</d>: www.linkedin.com/in/christian-hamann-a976bb33
+                <br> <d>Google Scholar</d>: Christian Hamann
+                <br> <d>ORCID</d>: https://orcid.org/0000-0002-2129-8550
+                <br> <d>Research Gate</d>:
+                <br>
+                <br> <c>-----------------------------------------------------------------------------------------------------</c>
+            </div>
+        </div>
+    </section>
+
+
+        <section class="container11">
+        <div class="container">
+            <div class="staff">
+                <div class="staff-member">
+                    <br>
+                    <br>
+                    <br>
+                    <img src="https://lh3.google.com/u/0/d/1LclXtBisQy7slBqy0w0yjkcKLfLAQhSt" alt="Letshego Mancoe">
+                    <div class="credentials">Frederica Simaanya</div>
+                </div>
+            </div>
+            <div class="bio">
+                <p>Focus Area:</p>
+                <br> Macroeconomic Uncertainty | Financial Stability
+                <br>
+                <br>
+                <p>Links:</p>
+                <br> <d>Website</d>:
+                <br> <d>Email</d>: u19276398@tuks.co.za
+                <br> <d>LinkedIn</d>: linkedin.com/in/frederica-simaanya-82b59129
+                <br> <d>Google Scholar</d>:
+                <br> <d>ORCID</d>:
+                <br> <d>Research Gate</d>:
+                <br>
+                <br> <c>-----------------------------------------------------------------------------------------------------</c>
+            </div>
+        </div>
+    </section>
+
+    <section class="container11">
+        <div class="container">
+            <div class="staff">
+                <div class="staff-member">
+                    <br>
+                    <br>
+                    <br>
+                    <img src="https://lh3.google.com/u/0/d/18veHG1pVGcMXI70zvDCW2_HMj1sNUxYt" alt="Blessings Nkuna">
+                    <div class="credentials">Blessings Nkuna</div>
+                </div>
+            </div>
+            <div class="bio">
+                <p>Focus Area:</p>
+                <br> Energy Economics | Public Policy | Development Economics | Monetary Policy
+                <br>
+                <br>
+                <p>Links:</p>
+                <br> <d>Website</d>: bnkuna.com
+                <br> <d>Email</d>: nkuna.b@tuks.co.za
+                <br> <d>LinkedIn</d>: linkedin.com/in/blessings-nkuna-b19107141
+                <br> <d>Google Scholar</d>:
+                <br> <d>ORCID</d>:
+                <br> <d>Research Gate</d>:
+                <br>
+                <br> <c>-----------------------------------------------------------------------------------------------------</c>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>cochairs@gmail.com for queries</p>
+</footer>
+
+</body>
+</html>

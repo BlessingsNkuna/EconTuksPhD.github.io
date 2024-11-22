@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUKS PhD's Page (Economics)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            font-family: 'Lora', serif;
+            background-color: #F7F9FB;
+            font-weight: 300;
+            margin: 0;
+            padding: 0;
+            color: black;
+            height: 100%;
+        }
+
+         header {
+            background-color: #011F5B;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .content {
+            flex: 1;
+            padding-top: 100px;
+            background-color: #F7F9FB;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 300;
+        }
+
+        header nav a:hover,
+        header nav a.active {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+
+        header nav a:hover {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+        .header-container h1 {
+            font-weight: bold;
+        }
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6em;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        header h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            margin: 5px 0 0;
+            font-weight: 300;
+        }
+
+        .main h2 {
+            font-family: 'Lora', serif;
+            font-size: 16px;
+            margin: 5px 0 0;
+            font-weight: 300;
+            font-size: 2em;
+            color: #011F5B;
+            text-align: left;
+            border-bottom: 1px ridge #C50900;
+        }
+
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0px auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: #F7F9FB;
+        }
+
+        .about-container, .highlights-container {
+            padding: 20px;
+            box-shadow: 0 2px 4px #011F5B;
+            border-radius: 8px;
+        }
+
+        .about-container {
+            background-color: #011F5B;
+            color: white;
+        }
+
+        .highlights-container {
+            background-color: rgba(1, 31, 91, 0.2);
+            color: #011F5B;
+        }
+
+        .about-container p {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .staff {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .staff-member {
+            text-align: center;
+            max-width: 200px;
+            flex: 1 1 200px;
+        }
+
+        .staff-member img {
+            width: 100%;
+            height: auto;
+            border-radius: 100px;
+            box-shadow: 0 2px 4px rgba(1, 31, 91, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        .staff-member img:hover {
+            transform: scale(1.05);
+        }
+
+        .staff-member .occupation {
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 300;
+            color: grey;
+        }
+
+        .staff-member .occupation2 {
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 300;
+            color: #D4AF37;
+        }
+
+        .staff-member .credentials {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #011F5B;
+            font-style: italic;
+        }
+
+        footer {
+            background-color: #011F5B;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .staff-member {
+                max-width: 150px;
+            }
+
+            .staff-member .credentials, .staff-member .occupation {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div>
+            <h1>Economics Ph.D Students</h1>
+            <h2>University of Pretoria</h2>
+        </div>
+        <nav>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/Hindexhtml">Home</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/team.html" class="active">Team</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/JobMarket.html">Ph.D Students</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/WorkPpaer.html">Ph.D Research</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/Data.html">Economic Data</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/books.html">Virtual-Library</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/gallery.html">Templates</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/coll.html">Year-Plan 2025</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <div class="department-head" style="text-align: center;"></div>
+
+    <div class="main" style="text-align: center;">
+        <br>
+        <br>
+        <br>
+        <h2>The PhD Team</h2>
+                <br>
+        <br>
+    </div>
+    <div class="staff">
+        <div class="staff-member">
+            <img src="https://lh3.google.com/u/0/d/1t7-27M7hfe_4joq4f27T8vxT_IjP5GG1" alt="Professor Ruthira Naraido">
+            <div class="credentials">Professor Ruthira Naraidoo</div>
+            <div class="occupation2">PhD Programme Coordinator</div>
+        </div>
+        <div class="staff-member">
+            <img src="https://lh3.google.com/u/0/d/19guLQL1iCumnWdtMykDGk3gqtI1mdvuh" alt="Professor Eleni Yitbarek">
+            <div class="credentials">Dr Eleni Yitbarek</div>
+            <div class="occupation2">PhD Programme Coordinator</div>
+        </div>
+        <div class="staff-member">
+            <img src="https://lh3.google.com/u/0/d/1EAchLRJCFI4sxQD67NOvFeFZYoZlOLKU" alt="Professor Roula Inglesi-Lotz">
+            <div class="credentials">Professor Roula Inglesi-Lotz</div>
+            <div class="occupation2">PhD Student Mentor/Advisor</div>
+        </div>
+        <div class="staff-member">
+            <img src="https://lh3.google.com/u/0/d/10VfUTsQDITZEfB3ASp2fZq0mJT-91XBb" alt="Professor Nara Monkam">
+            <div class="credentials">Professor Nara Monkam</div>
+            <div class="occupation2">PhD Student Mentor/Advisor</div>
+        </div>
+    </div>
+
+    <div class="main" style="text-align: center;">
+                <br>
+        <br>
+        <h2>2024 - Ph.D Student Committee</h2>
+                <br>
+        <br>
+    </div>
+    <div class="staff">
+        <div class="staff-member">
+            <img src="https://lh3.google.com/u/0/d/15T2uqmubtMI5EnFqRNptAOcbH5Is1agL" alt="Letshego Mancoe">
+            <div class="credentials">Letshego Mancoe</div>
+            <div class="occupation">Professional Development Rep.</div>
+        </div>
+        <div class="staff-member">
+            <img src="https://lh3.google.com/u/0/d/1M7Wa2dEkYkZfdVSrDmWKTTb4rxmbIjqR" alt="Megan Shongwe">
+            <div class="credentials">Megan Shongwe</div>
+            <div class="occupation">Social Affairs Rep.</div>
+        </div>
+        <div class="staff-member">
+            <img src="https://lh3.google.com/u/0/d/14iKwx5fZzasxEaOIXKYDd_p3f9PmXDrn" alt="Mphatso Ackim">
+            <div class="credentials">Mphatso Ackim</div>
+            <div class="occupation">Academic Affairs Rep.</div>
+        </div>
+        <div class="staff-member">
+            <img src="https://lh3.google.com/u/0/d/18veHG1pVGcMXI70zvDCW2_HMj1sNUxYt" alt="Blessings Nkuna">
+            <div class="credentials">Blessings Nkuna</div>
+            <div class="occupation">Chair</div>
+        </div>
+    </div>
+    <div class="main" style="text-align: center;">
+                <br>
+        <br>
+        <h2>2023 - Ph.D Student Committee</h2>
+                <br>
+        <br>
+    </div>
+    <div class="staff">
+        <div class="staff-member">
+            <img src="{% static '2.png' %}" alt="No image">
+            <div class="credentials">Alanda Venter</div>
+            <div class="occupation">Co-Chair</div>
+        </div>
+        <div class="staff-member">
+            <img src="{% static '3.png' %}" alt="No image">
+            <div class="credentials">Michael Meyer</div>
+            <div class="occupation">Co-Chair</div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>cochairs@gmail.com for queries</p>
+</footer>
+
+</body>
+</html>

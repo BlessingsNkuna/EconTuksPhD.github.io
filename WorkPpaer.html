@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUKS Working Papers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            font-family: 'Lora', serif;
+            background-color: #F7F9FB;
+            font-weight: 300;
+            margin: 0;
+            padding: 0;
+            color: black;
+            height: 100%;
+            text-align: justify;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #011F5B;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .content {
+            flex: 1;
+            padding-top: 100px;
+            background-color: #F7F9FB;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 300;
+        }
+
+        header nav a:hover,
+        header nav a.active {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+
+        header nav a:hover {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+        .header-container h1 {
+            font-weight: bold;
+        }
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6em;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        header h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            margin: 5px 0 0;
+            font-weight: 300;
+        }
+
+        .container1 {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #F7F9FB;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        .container11 {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border: 0.5px groove #F7F9FB;
+        }
+
+        .container1 .header-title {
+            width: 100%;
+            font-size: 2.2em;
+            color: #011F5B;
+            text-align: left;
+            padding-bottom: 10px;
+            font-weight: 300;
+            border-bottom: 5px ridge #C50900;
+        }
+
+        .container1 p {
+            font-weight: 300;
+            color: #4b4c50;
+            text-align: left;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 110%;
+            margin: 1px auto;
+            padding: 10px;
+            display: flex;
+            gap: 80px;
+            justify-content: center;
+            background-color: white;
+        }
+
+        .paper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .paper-item {
+            text-align: center;
+            width: 230px; /* Fixed width for the item */
+            box-sizing: border-box; /* Ensures padding and border are included in the width */
+        }
+
+        .paper-item img {
+            margin-top: 20px;
+            width: 80%;
+            height: auto;
+            transition: transform 0.3s ease;
+            border: 0.5px groove #011F5B;
+        }
+
+        .paper-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .credentials {
+            margin-top: 10px;
+            font-size: 19px;
+            color: #011F5B;
+            font-weight: 300;
+            background-color: white;
+        }
+
+        .abstract p {
+            margin: 10px 0;
+            text-align: center;
+            color: #F7F9FB;
+            font-weight: 300;
+            border: 1px dashed #011F5B;
+            background-color: #011F5B;
+        }
+
+        .abstract {
+            margin: 10px 0;
+            text-align: center;
+            color: #011F5B;
+            font-weight: 300;
+            background-color: white;
+            text-align: justify;
+        }
+
+
+        footer {
+            font-family: 'Roboto', sans-serif;
+            background-color: #011F5B;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .search-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .credentials c {
+
+            font-weight: 600;
+        }
+
+        .filter-container input {
+            padding: 10px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+
+        .filter-container button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #011F5B;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .filter-container button:hover {
+            transform: scale(1.05);
+        }
+
+        .filter-container button.active {
+            background-color: #ccc;
+        }
+
+        .results-count {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: 300;
+            color: #011F5B;
+            text-align: center;
+        }
+
+        .loading-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .loading-container img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            .container {
+                padding: 40px;
+                flex-direction: column;
+            }
+
+            .paper-item {
+                max-width: 200px;
+            }
+
+            .credentials, .occupation {
+                font-size: 12px;
+            }
+
+            .filter-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-container {
+                justify-content: center;
+            }
+        }
+    </style>
+    <script>
+        function showLoading() {
+            document.querySelector('.loading-container').style.display = 'flex';
+        }
+
+        function hideLoading() {
+            document.querySelector('.loading-container').style.display = 'none';
+        }
+
+        function updateResultsCount() {
+            const containers = document.querySelectorAll('.container11');
+            const visibleContainers = Array.from(containers).filter(container => container.style.display !== 'none');
+            const resultsCount = document.getElementById('resultsCount');
+            resultsCount.textContent = `${visibleContainers.length} result(s) found`;
+        }
+
+        function performAction(action, button) {
+            showLoading();
+            setTimeout(() => {
+                action();
+                hideLoading();
+                document.querySelectorAll('.filter-container button').forEach(btn => btn.classList.remove('active'));
+                if (button) button.classList.add('active');
+                updateResultsCount();
+            }, 700);
+        }
+
+        function searchFilter() {
+            performAction(() => {
+                const searchInput = document.getElementById('searchInput').value.toLowerCase();
+                const containers = document.querySelectorAll('.container11');
+
+                containers.forEach(container => {
+                    const text = container.innerText.toLowerCase();
+                    if (text.includes(searchInput)) {
+                        container.style.display = '';
+                    } else {
+                        container.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        function showAll(button) {
+            performAction(() => {
+                const containers = document.querySelectorAll('.container11');
+                containers.forEach(container => {
+                    container.style.display = '';
+                });
+            }, button);
+        }
+
+        function filterByStatus(status, button) {
+            performAction(() => {
+                const containers = document.querySelectorAll('.container11');
+
+                containers.forEach(container => {
+                    const text = container.innerText.toLowerCase();
+                    if (text.includes(status.toLowerCase())) {
+                        container.style.display = '';
+                    } else {
+                        container.style.display = 'none';
+                    }
+                });
+            }, button);
+        }
+
+        // Initialize the "See All" button as active and update the results count
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.filter-container button').classList.add('active');
+            updateResultsCount();
+
+            // Add event listener for "Enter" key press on search input
+            document.getElementById('searchInput').addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    searchFilter();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div>
+            <h1>Economics Ph.D Students</h1>
+            <h2>University of Pretoria</h2>
+        </div>
+        <nav>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/index.html">Home</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/team.html">Team</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/JobMarket.html">Ph.D Students</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/WorkPpaer.html" class="active">Ph.D Research</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/Data.html">Economic Data</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/books.html">Virtual-Library</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/gallery.html">Templates</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/coll.html">Year-Plan 2025</a>
+        </nav>
+    </div>
+</header>
+
+<div class="content">
+    <div class="container1">
+        <h2 class="header-title">PhD Academic Papers</h2>
+        <p>Browse the academic papers written by our esteemed staff.</p>
+        <div class="filter-container">
+            <div class="button-container">
+                <button onclick="showAll(this)">See All</button>
+                <button onclick="filterByStatus('2024', this)">2025</button>
+                <button onclick="filterByStatus('2023', this)">2024</button>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button onclick="searchFilter()">Search</button>
+            </div>
+        </div>
+        <div id="resultsCount" class="results-count"></div>
+    </div>
+
+    <div class="loading-container">
+        <img src="https://icons8.com/preloaders/preloaders/1488/Iphone-spinner-2.gif" alt="Loading...">
+    </div>
+
+    <section class="container11">
+        <div class="container">
+            <div class="paper">
+                <div class="paper-item">
+                    <div class="credentials"><br><c>The impact of renewable energy consumption to economic growth: A panel data application</c> </div>
+                    <br>
+                    <br>
+                                        <br>
+                    <br>
+                    <div class="credentials">Author: Roula Inglesi-Lotz</div>
+                    <div class="credentials">Year: 2016</div>
+                    <div class="credentials">Supervisor: </div>
+                    <div class="credentials">Email: </div>
+                </div>
+            </div>
+            <div class="abstract">
+                <p>Abstract</p>
+                <br> Internationally, the importance of renewable energy in the energy mix has been increasingly appreciated. The advantages of the renewable energy usage for the world's energy security and the environment are indisputable and much discussed in the literature. However, its effects on the economic welfare of the countries are yet to be examined fully and described quantitatively. The purpose of this paper is to estimate the impact of the renewable energy consumption to economic welfare by employing panel data techniques. The results show that the influence of renewable energy consumption or its share to the total energy mix to economic growth is positive and statistically significant. From a policy point of view, promoting renewable energies bears benefits not only for the environment but also for the economic conditions of the countries.<a href="https://www.sciencedirect.com/science/article/pii/S0140988315000171" target="_blank">Read Full Paper (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container11">
+        <div class="container">
+            <div class="paper">
+                <div class="paper-item">
+                    <br>
+                    <div class="credentials"><br><c>Local municipality productive efficiency and its determinants in South Africa
+</c> </div>
+                                        <br>
+                    <br>
+                                        <br>
+                    <br>
+                    <div class="credentials">Author: Nara Monkam</div>
+                    <div class="credentials">Year: 2014</div>
+                    <div class="credentials">Supervisor: </div>
+                    <div class="credentials">Email: </div>
+                </div>
+            </div>
+            <div class="abstract">
+                <p>Abstract</p>
+                <br> This paper assesses the technical efficiency of 231 local municipalities in South Africa for 2007 and investigates the potential determinants of efficiency gaps using the non-parametric data envelopment analysis technique. Efficiency scores are explained in a second-stage regression model using a Tobit regression model. To the best of our knowledge, this is the first attempt, using such a technique, to assess technical efficiency at the local government level in the African context. The results show that, on average, B1 and B3 municipalities could have theoretically achieved the same level of basic services with about 16% and 80% fewer resources respectively. Furthermore, fiscal autonomy and the number and skill levels of the top management of a municipality’s administration were found to influence the productive efficiency of municipalities in South Africa. Perhaps most importantly, the results depict a bleak picture of the democratic behaviour at the local level in South Africa. It appears that higher income and highly educated households do not feel the incentive to be active participants in public decision-making processes. The paper findings raise concerns over the future of local municipalities in the country, especially about their capability to efficiently deliver expected outcomes on a sustainable basis.<a href="https://www.tandfonline.com/doi/pdf/10.1080/0376835X.2013.875888" target="_blank">Read Full Paper (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container11">
+        <div class="container">
+            <div class="paper">
+                <div class="paper-item">
+                    <div class="credentials"><br><c>The Economic Impact of Climate Change</c> </div>
+                                        <br>
+                    <br>
+                                        <br>
+                    <br>
+                    <div class="credentials">Author: Jane Smith</div>
+                    <div class="credentials">Year: 2023</div>
+                    <div class="credentials">Supervisor: </div>
+                    <div class="credentials">Email: </div>
+                </div>
+            </div>
+            <div class="abstract">
+                <p>Abstract</p>
+                <br> This study explores the intersection of sustainability practices, emerging technologies, and human behavior in the context of rapidly shifting socio-economic landscapes. By integrating qualitative and quantitative methodologies, we examine the nuanced impacts of green technologies on consumption patterns, particularly in urban and semi-urban settings. The findings highlight critical barriers to adoption, including socio-cultural inertia, economic disparities, and policy misalignments, while identifying key leverage points for change. Through this interdisciplinary approach, we propose a novel framework to enhance policy design and implementation, aiming for equitable and scalable solutions to contemporary global challenges. This research contributes to a deeper understanding of the systemic changes required to achieve sustainable development goals and underscores the importance of aligning technological innovation with behavioral insights. Future directions include longitudinal studies to validate these findings across diverse geographies and economies.<br>
+                <a href="path/to/paper.pdf" target="_blank">Read Full Paper (PDF)</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>cochairs@gmail.com for queries</p>
+</footer>
+
+</body>
+</html>

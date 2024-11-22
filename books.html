@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore economics books and academic papers curated by the PhD students at the University of Pretoria's Department of Economics.">
+    <title>TUKS PhD's Page (Economics)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #011F5B;
+            --accent-color: #A50E1E;
+            --background-color: #F7F9FB;
+            --text-color: #011F5B;
+            --secondary-text-color: #4b4c50;
+        }
+
+        html, body {
+            font-family: 'Lora', serif;
+            background-color: #F7F9FB;
+            font-weight: 300;
+            color: black;
+            height: 100%;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #011F5B;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .content {
+            flex: 1;
+            padding-top: 100px;
+            background-color: #F7F9FB;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 300;
+        }
+
+        header nav a:hover,
+        header nav a.active {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+
+        header nav a:hover {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+        .header-container h1 {
+            font-weight: bold;
+        }
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6em;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        header h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            margin: 5px 0 0;
+            font-weight: 300;
+        }
+
+        .container1 {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--background-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container11 {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #F7F9FB;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .container1 .header-title {
+            width: 100%;
+            font-size: 2.2em;
+            color: var(--main-color);
+            text-align: left;
+            padding-bottom: 10px;
+            font-weight: 300;
+            border-bottom: 5px ridge var(--accent-color);
+        }
+
+        .container1 p {
+            font-weight: 300;
+            color: var(--secondary-text-color);
+            text-align: left;
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: #F7F9FB;
+        }
+
+        .data-container {
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #F7F9FB;
+        }
+
+        .data-container h2 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            color: var(--main-color);
+            border-bottom: 2px solid var(--main-color);
+        }
+
+        .data-container h3 {
+            margin-top: 20px;
+            color: var(--accent-color);
+            padding-bottom: 5px;
+            font-size: 30px;
+        }
+
+        .data-container h33 {
+            color: var(--main-color);
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .data-container ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .data-container li {
+            background-color: white;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            flex: 1 1 calc(50% - 40px);
+            border: 0.5px groove #F7F9FB;
+        }
+
+        .data-container li a {
+            text-decoration: none;
+            color: var(--main-color);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .data-container li p {
+            margin: 5px 0 0;
+            color: var(--secondary-text-color);
+            font-weight: normal;
+            text-align: justify;
+        }
+
+        .thumb {
+            text-align: center;
+            max-width: 100px;
+            margin: 10px auto;
+        }
+
+        .thumb img {
+            width: 200%;
+            height: auto;
+            box-shadow: 0 2px 4px rgba(1, 31, 91, 0.6);
+        }
+
+        footer {
+            background-color: var(--main-color);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .data-container ul {
+                flex-direction: column;
+            }
+
+            .data-container li {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div>
+            <h1>Economics Ph.D Students</h1>
+            <h2>University of Pretoria</h2>
+        </div>
+        <nav>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/index.html">Home</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/team.html">Team</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/JobMarket.html">Ph.D Students</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/WorkPpaer.html">Ph.D Research</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/Data.html">Economic Data</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/books.html" class="active">Virtual-Library</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/gallery.html">Templates</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/coll.html">Year-Plan 2025</a>
+        </nav>
+    </div>
+</header>
+
+<div class="content">
+    <div class="container1">
+        <h2 class="header-title">Virtual-Library</h2>
+        <p>Explore the collection of books and academic papers curated by the PhD students at the University of Pretoria's Department of Economics.</p>
+    </div>
+    <div class="container">
+        <div class="data-container" id="books">
+            <h3>Writing an Academic Paper</h3>
+            <ul>
+                <li>
+                    <p><a href="https://univofpretoria.on.worldcat.org/search/detail/865566383?queryString=elements%20of%20style&subscope=zs%3A33860%3A%3Asz%3A36865&changedFacet=scope&clusterResults=true&groupVariantRecords=false" target="_blank">Elements of Style (Click here to access - Hard Copy - UP Library)</a></p>
+                    <div class="thumb">
+                        <img src="https://lh3.google.com/u/0/d/13L7CDIsVjpHOj782CnLOykms6oWeZQRo" alt="Elements of Style">
+                    </div>
+                    <h33>Description: </h33>
+                    <p>“The Elements of Style” is a renowned writing guide by William Strunk Jr. and later expanded by E.B. White. First published in 1918, it offers clear, concise rules and principles for writing well in English. The book is famous for its direct, no-nonsense advice on grammar, usage, and composition. It covers essential topics like the proper use of punctuation, the construction of sentences, and the importance of clarity and brevity in writing. Widely respected, it’s a staple for anyone looking to improve their writing skills.</p>
+                </li>
+                <li>
+                    <p><a href="https://assets.cambridge.org/97811076/70747/frontmatter/9781107670747_frontmatter.pdf" target="_blank">How to Write and Publish a Scientific Paper (Click here to access - Hard Copy - UP Library)</a></p>
+                    <div class="thumb">
+                        <img src="https://lh3.google.com/u/0/d/1__cJRu4agFcrY3fo95lt8QFXVuixZGg_" alt="How to Write and Publish a Scientific Paper">
+                    </div>
+                    <h33>Description: </h33>
+                    <p>“How to Write and Publish a Scientific Paper” is a comprehensive guide for researchers and scientists on the process of writing and publishing scientific papers. Authored by Robert A. Day and Barbara Gastel, this book covers every aspect of scientific writing, from structuring a manuscript to the submission process, peer review, and responding to reviewers’ comments. It also provides tips on how to communicate research clearly and effectively to a scientific audience, making it an essential resource for anyone involved in academic publishing.</p>
+                </li>
+                <!-- More book items -->
+            </ul>
+            <h3>Coding</h3>
+            <ul>
+                 <li>
+                    <p><a href="https://r4ds.had.co.nz" target="_blank">R for Data Science (Click here to access official resource)</a></p>
+                    <div class="thumb">
+                        <img src="https://lh3.google.com/u/0/d/1qL5hR9VKerl193EDTVCelk5twv_o19IX" alt="Elements of Style">
+                    </div>
+                    <h33>Description: </h33>
+                    <p>“R for Data Science” by Hadley Wickham and Garrett Grolemund is a comprehensive guide designed to teach users how to use R for data analysis. The book covers a range of topics, including data wrangling, visualization, and modeling, all within the R programming language. It emphasizes a hands-on approach with practical examples and code snippets that help readers learn by doing. The book is suitable for beginners as well as those looking to deepen their knowledge of data science using R.</p>
+                </li>
+                <li>
+                    <p><a href="https://www.princeton.edu/~otorres/StataTutorial.pdf" target="_blank">Getting Started in Data Analysis using Stata (Click here to access official resource)</a></p>
+                    <div class="thumb">
+                        <img src="https://lh3.google.com/u/0/d/1n6w4xCGW1XOKDyNFAwYAZjg6pDYrcKCT" alt="How to Write and Publish a Scientific Paper">
+                    </div>
+                    <h33>Description: </h33>
+                    <p>“Getting Started in Data Analysis using Stata (v. 6.0)” by Oscar Torres-Reyna is a practical guide for beginners on how to perform data analysis using Stata, a popular statistical software. The guide covers fundamental concepts, including how to import data, manage datasets, and perform basic statistical analyses. It also provides step-by-step instructions and examples to help users familiarize themselves with Stata’s commands and interface, making it a valuable resource for students and researchers new to the software.</p>
+                </li>
+                <!-- More reference book items -->
+            </ul>
+            <h3>Books on Economics</h3>
+            <ul>
+                <li>
+                    <p><a href="http://www.manoa.hawaii.edu/ctahr/aheed/Carl/supplementary%20readings/McCloskey_1983_The_rhetoric_of_economics.pdf" target="_blank">The Rhetoric of Economics (Click here to access official resource)</a></p>
+                    <div class="thumb">
+                        <img src="https://lh3.google.com/u/0/d/1IRhWjjtwmgm3Q3YE070b-AZE6kzltnzj" alt="Elements of Style">
+                    </div>
+                    <h33>Description: </h33>
+                    <p>“The Rhetoric of Economics” by Deirdre Nansen McCloskey is a pioneering work that challenges the traditional understanding of economics as a purely objective and scientific field. McCloskey argues that economics is deeply intertwined with rhetoric, meaning that the way economists argue, persuade, and communicate is just as important as the data and models they use. The book explores how metaphors, narratives, and other rhetorical devices shape economic discourse, suggesting that economics is as much a humanistic discipline as it is a scientific one.</p>
+                </li>
+                <li>
+                    <p><a href="https://writingproject.fas.harvard.edu/files/hwp/files/writingeconomics.pdf" target="_blank">Writing Economics (Click here to access official resource)</a></p>
+                    <div class="thumb">
+                        <img src="https://lh3.google.com/u/0/d/1AWvIdgUX-24ghOJsVmzIYw0RWRPQ4qHJ" alt="How to Write and Publish a Scientific Paper">
+                    </div>
+                    <h33>Description: </h33>
+                    <p>The book “Writing in Economics” by the Harvard Writing Project is a detailed guide aimed at helping students excel in economic writing. It covers various forms of economic writing, including empirical research, essays, and policy analysis. The guide emphasizes constructing clear arguments, effectively using evidence, and adhering to the conventions specific to economic writing. It also includes advice on style, grammar, and formatting, tailored to the needs of economics students, to improve both academic and professional writing skills.</p>
+                </li>
+                <!-- More book items -->
+                <li>
+                    <p><a href="https://giftoftruth.wordpress.com/wp-content/uploads/2016/04/essays-in-positive-economics-friedman-1953.pdf" target="_blank">Essays in Positive Economics (Click here to access official resource)</a></p>
+                    <div class="thumb">
+                        <img src="https://lh3.google.com/u/0/d/1z-pIl18POql-dePAJarqkqkcG71sD9bH" alt="Elements of Style">
+                    </div>
+                    <h33>Description: </h33>
+                    <p>“Essays in Positive Economics” by Milton Friedman is a collection of essays that includes the seminal piece “The Methodology of Positive Economics.” In this essay, Friedman argues for the importance of positive economics, which focuses on objective analysis and predictions rather than normative judgments. He emphasizes that the validity of economic theories should be judged by their predictive accuracy rather than the realism of their assumptions. This work is foundational in shaping modern economic thought and the methodology used in economic analysis.</p>
+                </li>
+                <li>
+                    <p><a href="https://ucema.edu.ar/~dl/CURSOS/Taller_de_Tesis_MAE/Angrist.pdf" target="_blank">Mostly Harmless Econometrics (Click here to access online resource)</a></p>
+                    <div class="thumb">
+                        <img src="https://lh3.google.com/u/0/d/1XrQlVc8OjneqYiWJBoBWmoS44gGce1lp" alt="How to Write and Publish a Scientific Paper">
+                    </div>
+                    <h33>Description: </h33>
+                    <p>An Empiricist’s Companion by Joshua Angrist and Jörn-Steffen Pischke is a widely acclaimed guide for applied economists, particularly those focused on causal inference. It presents essential econometric tools and concepts in an intuitive and practical way, emphasizing robust empirical strategies. </p>
+                </li>
+               <li>
+                    <p><a href="https://cbpbu.ac.in/userfiles/file/2020/STUDY_MAT/ECO/2.pdf" target="_blank">Mostly Harmless Econometrics (Click here to access online resource)</a></p>
+                    <div class="thumb">
+                        <img src="https://lh3.google.com/u/0/d/11fzIp5LOiTgje_K0PpiKP02wpZJUB9mQ" alt="How to Write and Publish a Scientific Paper">
+                    </div>
+                    <h33>Description: </h33>
+                    <p>A Modern Approach by Jeffrey Wooldridge is one of the most widely used textbooks for learning econometrics. It combines theoretical rigor with practical application, making it suitable for undergraduate and graduate students. </p>
+                </li>                <!-- More book items -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>cochairs@gmail.com for queries</p>
+</footer>
+</body>
+</html>

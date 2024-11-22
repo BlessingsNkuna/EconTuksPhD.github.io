@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUKS PhD's Page (Economics)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            font-family: 'Lora', serif;
+            background-color: #F7F9FB;
+            font-weight: 300;
+            margin: 0;
+            padding: 0;
+            color: black;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+         header {
+            background-color: #011F5B;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .content {
+            flex: 1;
+            padding-top: 100px;
+            background-color: #F7F9FB;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 300;
+        }
+
+        header nav a:hover,
+        header nav a.active {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+
+        header nav a:hover {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+        .header-container h1 {
+            font-weight: bold;
+        }
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6em;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        header h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            margin: 5px 0 0;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            background-color: #F7F9FB;
+        }
+
+        .data-container {
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1;
+            background-color: #F7F9FB;
+        }
+
+        .data-container h2 {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #011F5B;
+            padding-bottom: 10px;
+            color: #011F5B;
+            border-bottom: 5px ridge #C50900;
+        }
+
+        .data-container h3 {
+            margin-top: 20px;
+            color: #011F5B;
+            padding-bottom: 5px;
+            font-weight: 300;
+        }
+
+        .data-container h33 {
+            color: #011F5B;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .data-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .data-container li {
+            background-color: white;
+            border: 0.5px groove #F7F9FB;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 5px solid #011F5B;
+            position: relative;
+        }
+
+        .data-container li .link-button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin: 5px 0;
+            background-color: #011F5B;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .data-container li p {
+            margin: 5px 0 0;
+            color: #011F5B;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        .macro-bullet {
+            border-left-color: #D4AF37; /* Gold */
+        }
+
+        .micro-bullet {
+            border-left-color: #FF5733; /* Orange */
+        }
+
+        footer {
+            font-family: 'Roboto', sans-serif;
+            background-color: #011F5B;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div>
+            <h1>Economics Ph.D Students</h1>
+            <h2>University of Pretoria</h2>
+        </div>
+        <nav>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/index.html" >Home</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/team.html">Team</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/JobMarket.html">Ph.D Students</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/WorkPpaer.html">Ph.D Research</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/Data.html" class="active">Economic Data</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/books.html">Virtual-Library</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/gallery.html">Templates</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/coll.html">Year-Plan 2025</a>
+        </nav>
+    </div>
+</header>
+
+<div class="content">
+    <div class="container">
+        <div class="data-container" id="macrodata">
+            <h2>Macro Data</h2>
+            <h3>Global Financial Data and Other Financial Statistics</h3>
+            <ul>
+                <li class="macro-bullet">
+                    <a href="https://www.imf.org" target="_blank" class="link-button">Visit IMF - International Monetary Fund</a>
+                    <br>
+                    <br>
+                    <h33>Description:</h33>
+                    <p>The IMF provides comprehensive data on global financial statistics, including GDP, inflation rates, and balance of payments. Key variables include country-specific economic indicators and international financial trends. The data is essential for understanding global economic stability and development.</p><br>
+                    <br>
+                </li>
+                <li class="macro-bullet">
+                    <a href="https://fred.stlouisfed.org" target="_blank" class="link-button">Visit FRED - Federal Reserve Bank of St. Louis</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>FRED offers a wide range of global financial data, including interest rates, monetary aggregates, and consumer price indexes. It covers various economic indicators that are crucial for macroeconomic analysis and forecasting. Data is available in user-friendly formats for easy access.</p><br>
+                    <br>
+                </li>
+                <li class="macro-bullet">
+                    <a href="https://data.worldbank.org" target="_blank" class="link-button">Visit WBOD - World Bank Open Data</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>World Bank Open Data provides extensive datasets on global economic and financial indicators. This includes development indicators, poverty statistics, and socio-economic data. The platform helps researchers analyze trends and develop policy recommendations based on robust data.</p><br>
+                    <br>
+                </li>
+                <li class="macro-bullet">
+                    <a href="https://www.oecd.org" target="_blank" class="link-button">Visit OECD - Organisation for Economic Co-operation and Development</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>The OECD offers datasets on a variety of economic indicators, such as productivity, labor markets, and national accounts. The data supports comparative analysis across member and non-member countries. Key variables include employment rates, GDP growth, and income distribution.</p>
+                <br>
+                    <br></li>
+                <li class="macro-bullet">
+                    <a href="https://fx.sauder.ubc.ca" target="_blank" class="link-button">Visit PACIFIC Exchange Rate Service</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>The PACIFIC Exchange Rate Service provides detailed exchange rate data for numerous currencies. It includes historical rates and current updates, essential for international financial analysis. The service helps track currency movements and analyze their economic impact.</p><br>
+                    <br>
+                </li>
+                <li class="macro-bullet">
+                    <a href="https://www.resbank.co.za" target="_blank" class="link-button">Visit SARB - South African Reserve Bank</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>SARB offers a variety of monetary and economic data specific to South Africa. This includes data on interest rates, inflation, and economic growth. The information is vital for understanding the financial environment and policy decisions in South Africa.</p>
+                <br>
+                    <br></li>
+            </ul>
+            <h3>Socioeconomic Indicators & Environment</h3>
+            <ul>
+                <li class="macro-bullet">
+                    <a href="https://ourworldindata.org" target="_blank" class="link-button">Visit OWID - Our World In Data</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>OWID provides comprehensive data on global health, environmental changes, and socio-economic development. It covers topics such as pollution, energy consumption, and public health. The data helps analyze long-term trends and assess progress towards sustainable development goals.</p>
+                <br>
+                    <br></li>
+                <li class="macro-bullet">
+                    <a href="https://www.who.int" target="_blank" class="link-button">Visit WHO - World Health Organization</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>WHO offers detailed health statistics, including data on diseases, health systems, and mortality rates. This includes information on Covid-19, malaria, and other significant health indicators. The data supports health policy development and global health monitoring.</p><br>
+                    <br>
+                </li>
+                <li class="macro-bullet">
+                    <a href="https://www.iea.org" target="_blank" class="link-button">Visit IEA - International Energy Agency</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>The IEA provides data on global energy production, consumption, and forecasts. This includes information on oil, gas, renewable energy, and energy policies. The data is crucial for energy market analysis and developing sustainable energy strategies.</p>
+                <br>
+                    <br></li>
+                <li class="macro-bullet">
+                    <a href="https://www.eia.gov" target="_blank" class="link-button">Visit EIA - Energy Information Administration</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>The EIA offers detailed statistics on oil, gas, electricity, and renewable energy. It includes historical data and projections for future energy trends. The information is essential for understanding energy markets and formulating energy policies.</p><br>
+                    <br>
+                </li>
+            </ul>
+            <h3>Food and Agriculture</h3>
+            <ul>
+                <li class="macro-bullet">
+                    <a href="https://www.fao.org" target="_blank" class="link-button">Visit FAO - Food and Agricultural Organisation of UN</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>FAO provides data on global food production, prices, and agricultural practices. It includes information on crop yields, food security, and agricultural trade. The data helps in analyzing food supply chains and addressing food security issues.</p>
+                <br>
+                    <br></li>
+            </ul>
+            <h3>Developed Countries (Labour Markets and Inflation)</h3>
+            <ul>
+                <li class="macro-bullet">
+                    <a href="https://www.bls.gov" target="_blank" class="link-button">Visit BLS - US Bureau of Labor Statistics</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>BLS offers extensive data on labor market conditions, including employment rates, wages, and productivity. The data is critical for understanding labor market dynamics and informing economic policy. It also includes inflation and consumer price indexes.</p><br>
+                    <br>
+                </li>
+                <li class="macro-bullet">
+                    <a href="https://ec.europa.eu/eurostat" target="_blank" class="link-button">Visit Eurostat</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>Eurostat provides statistical information on the European Union's economy, including labor markets, inflation, and GDP. It supports comparative analysis across EU member states. Key variables include employment rates, price indexes, and economic output.</p>
+                <br>
+                    <br></li>
+                <li class="macro-bullet">
+                    <a href="https://www.rug.nl/ggdc/productivity/pwt" target="_blank" class="link-button">Visit PWT - Penn World Tables</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>The Penn World Tables offer data on income, output, input, and productivity across countries. This includes GDP, purchasing power parity, and capital stock. The data is used for international comparisons of economic performance and productivity.</p>
+                <br>
+                    <br></li>
+            </ul>
+            <h3>Forecasts</h3>
+            <ul>
+                <li class="macro-bullet">
+                    <a href="https://www.imf.org/external/pubs/ft/weo" target="_blank" class="link-button">Visit WEO - World Economic Outlook</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>WEO provides forecasts on global economic growth, inflation, and trade. It includes projections for GDP and inflation rates across different countries. The data is essential for understanding future economic trends and policy implications.</p>
+                <br>
+                    <br></li>
+                <li class="macro-bullet">
+                    <a href="https://www.worldbank.org/en/publication/global-economic-prospects" target="_blank" class="link-button">Visit GEP - Global Economic Prospects</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>GEP offers economic forecasts and analyses of global economic developments. It includes projections for GDP, inflation, and trade. The data helps in understanding economic risks and opportunities in different regions.</p><br>
+                    <br>
+                </li>
+            </ul>
+        </div>
+
+        <div class="data-container" id="microdata">
+            <h2>Micro Data</h2>
+            <h3>Living Conditions Survey (South Africa)</h3>
+            <ul>
+                <li class="micro-bullet">
+                    <a href="http://www.statssa.gov.za/?page_id=739&id=1" target="_blank" class="link-button">Visit LCS 2014-2015</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>The Living Conditions Survey provides data on household living conditions in South Africa. It includes variables such as income, expenditure, and access to services. The data helps in assessing poverty and social inequality.</p>
+                <br>
+                    <br></li>
+                <li class="micro-bullet">
+                    <a href="http://www.statssa.gov.za/?page_id=739&id=1" target="_blank" class="link-button">Visit LCS 2008-2009</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>The 2008-2009 Living Conditions Survey offers insights into household income, spending, and living standards. It covers various socio-economic indicators, providing a comprehensive view of living conditions during this period.</p>
+                <br>
+                    <br></li>
+            </ul>
+            <h3>National Income Dynamics Survey (South Africa)</h3>
+            <ul>
+                <li class="micro-bullet">
+                    <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/712" target="_blank" class="link-button">Visit NIDS Wave 5</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <br>
+                    <br><p>NIDS Wave 5 tracks income, employment, and household dynamics over time. It includes data on health, education, and migration. The survey helps understand long-term socio-economic changes in South Africa.</p>
+                </li>
+                <li class="micro-bullet">
+                    <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/611" target="_blank" class="link-button">Visit NIDS Wave 4</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>NIDS Wave 4 provides data on household income, employment, and demographic changes. It includes variables related to education, health, and migration patterns. The survey supports socio-economic research and policy analysis.</p>
+                <br>
+                    <br></li>
+                <li class="micro-bullet">
+                    <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/462" target="_blank" class="link-button">Visit NIDS Wave 3</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>NIDS Wave 3 focuses on income, employment, and household dynamics. It tracks changes in living conditions and socio-economic status over time. The data is crucial for understanding poverty and inequality trends.</p>
+                <br>
+                    <br></li>
+                <li class="micro-bullet">
+                    <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/451" target="_blank" class="link-button">Visit NIDS Wave 2</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>NIDS Wave 2 includes data on income, employment, and household characteristics. It captures changes in socio-economic conditions and supports longitudinal analysis. The survey is important for policy development and evaluation.</p>
+                <br>
+                    <br></li>
+                <li class="micro-bullet">
+                    <a href="https://www.datafirst.uct.ac.za/dataportal/index.php/catalog/450" target="_blank" class="link-button">Visit NIDS Wave 1</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>NIDS Wave 1 provides baseline data on income, employment, and household structure. It includes variables related to health, education, and living standards. The survey serves as a foundation for longitudinal socio-economic research.</p>
+                <br>
+                    <br></li>
+            </ul>
+            <h3>Income and Expenditure Survey (South Africa)</h3>
+            <ul>
+                <li class="micro-bullet">
+                    <a href="http://www.statssa.gov.za/?page_id=739&id=2" target="_blank" class="link-button">Visit EIS 2005-2006</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>The Income and Expenditure Survey 2005-2006 provides data on household income, expenditure, and consumption patterns. It includes variables on food security, housing, and access to basic services. The data is essential for understanding household economic behavior.</p><br>
+                    <br>
+                </li>
+                <li class="micro-bullet">
+                    <a href="http://www.statssa.gov.za/?page_id=739&id=2" target="_blank" class="link-button">Visit EIS 2010-2011</a>
+                    <br><br>
+                    <h33>Description:</h33>
+                    <p>The 2010-2011 Income and Expenditure Survey offers insights into household spending, income sources, and living conditions. It includes detailed data on consumption patterns and economic well-being. The survey supports analysis of economic inequality and poverty.</p><br>
+                    <br>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>cochairs@gmail.com for queries</p>
+</footer>
+
+</body>
+</html>

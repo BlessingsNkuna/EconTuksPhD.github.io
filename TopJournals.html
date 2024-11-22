@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Writing Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght=400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Adobe+Garamond+Pro:wght=400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght=300&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6"></script>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-weight: 300;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #363945;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #172035;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav {
+            text-align: center;
+            margin: 10px 0;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #172035;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            font-family: 'Adobe Garamond Pro', serif;
+            font-size: 1.8em;
+            color: #4b4c50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h3 {
+            font-family: 'Adobe Garamond Pro', serif;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: #4b4c50;
+            text-align: center;
+        }
+        #upload-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        input[type="file"] {
+            padding: 10px;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #343337;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        button:hover {
+            background-color: #172035;
+        }
+        #results {
+            display: none;
+        }
+        #results h2 {
+            margin-top: 40px;
+        }
+        .charts {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .chart-container {
+            width: 45%;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #f4f4f4;
+            color: #7a7a7a;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Academic Writing Assistant</h1>
+        <p>Your tool for analyzing academic references</p>
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Upload Document</a>
+        <a href="#">View Results</a>
+        <a href="#">Dashboard</a>
+    </nav>
+    <div class="container">
+        <section id="upload-section">
+            <h2>Upload Your Document</h2>
+            <input type="file" id="file-input" accept=".pdf,.docx,.pptx">
+            <button id="upload-button">Upload and Analyze</button>
+        </section>
+
+        <section id="instructions">
+            <h3>How to Use</h3>
+            <p>Upload your academic document (PDF, DOCX, or PPTX) and let our tool analyze the references. We will match them against our database of journals to provide you with a detailed analysis of your references.</p>
+        </section>
+
+        <section id="results">
+            <h2>Analysis Results</h2>
+            <div id="journal-score"></div>
+            <div class="charts">
+                <div class="chart-container">
+                    <canvas id="pie-chart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="bar-chart"></canvas>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Academic Writing Assistant. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let journalData = {}; // To store the journal data from the Excel file
+
+        // Function to load the Excel file and extract journal data
+        function loadExcelData() {
+            const url = '/mnt/data/ABDC-JQL-2022-v3-100523.xlsx';
+            fetch(url)
+                .then(response => response.arrayBuffer())
+                .then(data => {
+                    const workbook = XLSX.read(data, {type: 'array'});
+                    const sheetName = workbook.SheetNames[0];
+                    const sheet = workbook.Sheets[sheetName];
+                    const jsonData = XLSX.utils.sheet_to_json(sheet);
+
+                    jsonData.forEach(row => {
+                        const journalTitle = row["Journal Title"];
+                        const ranking = row["2022 rating"];
+                        if (journalTitle && ranking) {
+                            journalData[journalTitle.trim().toLowerCase()] = ranking;
+                        }
+                    });
+
+                    console.log("Loaded Journal Data:", journalData);
+                });
+        }
+
+        // Load Excel data on page load
+        window.onload = loadExcelData;
+
+        document.getElementById('upload-button').addEventListener('click', function() {
+            const fileInput = document.getElementById('file-input');
+            const file = fileInput.files[0];
+
+            if (!file) {
+                alert("Please upload a file.");
+                return;
+            }
+
+            if (file.type === "application/pdf") {
+                analyzePDF(file);
+            } else {
+                alert("Unsupported file type. Please upload a .pdf file.");
+            }
+        });
+
+        function analyzePDF(file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const typedArray = new Uint8Array(event.target.result);
+                pdfjsLib.getDocument(typedArray).promise.then(pdf => {
+                    const numPages = pdf.numPages;
+                    let text = '';
+
+                    const processPage = pageIndex => {
+                        pdf.getPage(pageIndex).then(page => {
+                            page.getTextContent().then(content => {
+                                content.items.forEach(item => {
+                                    text += item.str + ' ';
+                                });
+
+                                if (pageIndex < numPages) {
+                                    processPage(pageIndex + 1);
+                                } else {
+                                    // Pre-process the extracted text
+                                    text = cleanText(text);
+                                    searchAndAnalyzeReferences(text);
+                                }
+                            });
+                        });
+                    };
+
+                    processPage(1);
+                });
+            };
+            reader.readAsArrayBuffer(file);
+        }
+
+        function cleanText(text) {
+            // Convert to lowercase, remove extra spaces, and normalize diacritics
+            return text.toLowerCase()
+                       .replace(/\s+/g, ' ')
+                       .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        }
+
+        function searchAndAnalyzeReferences(content) {
+            const referencesStart = content.indexOf("references");
+            if (referencesStart === -1) {
+                console.log("References section not found");
+                return [];
+            }
+            const references = content.substring(referencesStart).split('\n');
+            analyzeReferences(references);
+        }
+
+        function analyzeReferences(references) {
+            const fuse = new Fuse(Object.keys(journalData), {
+                includeScore: true,
+                threshold: 0.3
+            });
+
+            const referenceCounts = {
+                predatory: 0,
+                A: 0,
+                B: 0,
+                C: 0,
+                others: 0
+            };
+
+            references.forEach(ref => {
+                let matched = false;
+                const result = fuse.search(ref);
+                if (result.length > 0 && result[0].score <= 0.3) {
+                    const journal = result[0].item;
+                    const ranking = journalData[journal];
+                    referenceCounts[ranking] = (referenceCounts[ranking] || 0) + 1;
+                    matched = true;
+                }
+
+                if (!matched) {
+                    referenceCounts.predatory++;
+                }
+            });
+
+            generateAnalysisDashboard(referenceCounts);
+        }
+
+        function generateAnalysisDashboard(referenceCounts) {
+            const totalReferences = Object.values(referenceCounts).reduce((a, b) => a + b, 0);
+            const nonPredatoryReferences = totalReferences - referenceCounts.predatory;
+
+            const nonPredatoryScore = (nonPredatoryReferences / totalReferences) * 100;
+            document.getElementById('journal-score').textContent = `Non-predatory Journal Score: ${nonPredatoryScore.toFixed(2)}%`;
+
+            const ctxPie = document.getElementById('pie-chart').getContext('2d');
+            new Chart(ctxPie, {
+                type: 'pie',
+                data: {
+                    labels: ['Non-predatory Journals', 'Predatory/Unrecognized Journals'],
+                    datasets: [{
+                        data: [nonPredatoryReferences, referenceCounts.predatory],
+                        backgroundColor: ['rgba(54, 162, 235, 0.2)', 'rgba(255, 99, 132, 0.2)'],
+                        borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)'],
+                        borderWidth: 1
+                    }]
+                }
+            });
+
+            const ctxBar = document.getElementById('bar-chart').getContext('2d');
+            new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['A', 'B', 'C', 'Others'],
+                    datasets: [{
+                        label: 'Number of References per Journal Ranking',
+                        data: [referenceCounts.A, referenceCounts.B, referenceCounts.C, referenceCounts.others],
+                        backgroundColor: [
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(201, 203, 207, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(201, 203, 207, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

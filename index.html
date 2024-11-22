@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TUKS PhD's Page (Economics)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            font-family: 'Lora', serif;
+            background-color: #F7F9FB;
+            font-weight: 300;
+            margin: 0;
+            padding: 0;
+            color: #011F5B;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #011F5B;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .content {
+            flex: 1;
+            padding-top: 100px;
+            background-color: #F7F9FB;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 90px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 300;
+        }
+
+        header nav a:hover,
+        header nav a.active {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+
+        header nav a:hover {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+        .header-container h1 {
+            font-weight: bold;
+        }
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6em;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        header h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            margin: 5px 0 0;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #F7F9FB;
+            display: flex;
+            gap: 20px;
+        }
+
+        .about-container, .highlights-container {
+            padding: 20px;
+            flex: 1;
+            border-radius: 8px;
+        }
+
+        .about-container {
+            background-color: #011F5B;
+            color: white;
+            font-weight: 300;
+        }
+
+        .highlights-container {
+            background-color: white;
+            color: #011F5B;
+            font-size: 16px;
+            border: 1.5px groove #F7F9FB;
+            font-weight: 300;
+        }
+
+        .highlights-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .content h1 {
+            font-family: 'Helvetica', serif; /* Elegant serif font for headings */
+            font-weight: 700; /* Bold weight for emphasis */
+            font-size: 2rem; /* Large font size for prominence */
+            color: #011F5B; /* Slightly muted dark blue */
+            text-align: center; /* Center the heading */
+            margin-bottom: 1rem; /* Add spacing below the heading */
+        }
+
+        .carousel-content {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .highlight-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 20px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+        }
+
+        .highlight-date {
+            font-weight: 300;
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .read-more-btn {
+            background-color: #C50900;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .read-more-btn:hover {
+            background-color: #011F5B;
+            transform: scale(1.05);
+        }
+
+        .about-container p {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+        }
+
+        .band {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 20px;
+            margin: 40px;
+        }
+
+        .card {
+            background: white;
+            border: 1.5px groove #F7F9FB;
+            text-decoration: none;
+            color: #011F5B;
+            display: flex;               /* Enable Flexbox */
+            flex-direction: column;      /* Stack content vertically */
+            align-items: center;         /* Center horizontally */
+            justify-content: center;     /* Center vertically */
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.1s ease-in;
+            width: 60%;
+            height: auto;                /* Adjust height dynamically */
+        }
+
+        .card img {
+            width: 80%;                  /* Restrict image width */
+            height: 150px;               /* Fixed height */
+            object-fit: cover;           /* Maintain aspect ratio */
+            display: block;               /* Center image horizontally */
+            border: 4px solid #2A4A7B; /* Blue border */
+            border-radius: 8px; /* Optional rounded corners for a polished look */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional subtle shadow for depth */
+        }
+
+        .content img {
+            width: 100%;                  /* Restrict image width */
+            height: 40%;               /* Fixed height */
+            object-fit: cover;           /* Maintain aspect ratio */
+            display: block;               /* Center image horizontally */
+            border-top: 1px solid #011F5B;
+            border-bottom: 2px ridge #011F5B;
+            border-radius: 8px; /* Optional rounded corners for a polished look */
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card article {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            margin: 0 0 10px;
+            color: #011F5B;
+        }
+
+        .card p {
+            flex: 1;
+            line-height: 1.4;
+            color: black;
+            font-size: 14px;
+            font-family: 'Roboto', sans-serif;
+            margin: 0 0 10px;
+        }
+
+        .card span {
+            font-size: 12px;
+            color: black;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: auto;
+        }
+
+        .thumb {
+            width: 100%;
+            height: 0;
+            padding-bottom: 60%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        footer {
+            font-family: 'Roboto', sans-serif;
+            background-color: #011F5B;
+            color: white;
+            text-align: center;
+            padding: 0px 0;
+            margin-top: x0px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            .container {
+                padding: 10px;
+                flex-direction: column;
+            }
+
+            .staff-member {
+                max-width: 150px;
+            }
+
+            .staff-member .credentials, .staff-member .occupation {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div>
+            <h1>Economics Ph.D Students</h1>
+            <h2>University of Pretoria</h2>
+        </div>
+        <nav>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/Home.html" class="active">Home</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/team.html">Team</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/JobMarket.html">Ph.D Students</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/WorkPpaer.html">Ph.D Research</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/Data.html">Economic Data</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/books.html">Virtual-Library</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/gallery.html">Templates</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/coll.html">Year-Plan 2025</a>
+        </nav>
+    </div>
+</header>
+<div class="content">
+       <img src="https://lh3.google.com/u/0/d/1sj6xd8Xt_BLZk1yFkWuYmU1AxZubYHcM" alt="Human Rights Day">
+       <br><br>
+        <h1> Welcome</h1>
+        <body>This is a page created by PhD students in economics from the University<br>
+        of Pretoria. We use this space to share resources and keep an online library of all our work.<br>
+        We share code, books and other important resources related to research in economics.<br>
+        You are welcome to browse around and hopefully find resources that might be useful to you.<br>
+        Let us know if we could help in any other way<br></body>
+        <br><br>
+</div>
+
+<footer>
+    <p>cochairs@gmail.com for queries</p>
+</footer>
+
+<script>
+    let highlightIndex = 0;
+    const highlightsCarousel = document.querySelector('.carousel-content');
+    const highlights = document.querySelectorAll('.highlight-item');
+
+    function showHighlight(index) {
+        highlightsCarousel.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    function nextHighlight() {
+        highlightIndex = (highlightIndex + 1) % highlights.length;
+        showHighlight(highlightIndex);
+    }
+
+    // Change highlight every 3 seconds
+    setInterval(nextHighlight, 3000);
+
+    const cards = document.querySelectorAll('.card');
+    const band = document.querySelector('.band');
+    let startIndex = 0;
+    const totalCards = cards.length;
+    const displayCount = 4;
+
+    function rotateCards() {
+        for (let i = 0; i < displayCount; i++) {
+            const currentIndex = (startIndex + i) % totalCards;
+            band.appendChild(cards[currentIndex]);
+        }
+        startIndex = (startIndex + 1) % totalCards;
+    }
+
+    setInterval(rotateCards, 4500); // Changed interval to 4.5 seconds
+
+    // Initial load
+    rotateCards();
+</script>
+</body>
+</html>

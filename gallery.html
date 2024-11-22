@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore event pictures from the last two years curated by the PhD students at the University of Pretoria's Department of Economics.">
+    <title>TUKS PhD's Page (Economics)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            font-family: 'Lora', serif;
+            background-color: #F7F9FB;
+            font-weight: 300;
+            margin: 0;
+            padding: 0;
+            color: black;
+            height: 100%;
+        }
+
+        header {
+            background-color: #011F5B;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .content {
+            flex: 1;
+            padding-top: 50px;
+            background-color: #F7F9FB;
+            align-items: center;
+            text-align: center;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 300;
+        }
+
+        header nav a:hover,
+        header nav a.active {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+
+        header nav a:hover {
+            font-weight: 300;
+            background-color: #C50900;
+        }
+        .header-container h1 {
+            font-weight: bold;
+        }
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.6em;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        header h2 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            margin: 5px 0 0;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .gallery-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background-color: var(--background-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+.calendar-container {
+    margin: 20px auto;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.calendar-container h2 {
+    font-family: 'Roboto', sans-serif;
+    color: #011F5B;
+    margin-bottom: 20px;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.month {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.month h3 {
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    color: #C50900;
+    margin-bottom: 10px;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.day {
+    padding: 10px;
+    background: #F7F9FB;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    cursor: pointer;
+}
+
+.day:hover {
+    background: #C50900;
+    color: #fff;
+}
+
+.day.has-plan {
+    background: #011F5B;
+    color: #fff;
+    font-weight: bold;
+}
+
+.day.blank {
+    background: transparent;
+    border: none;
+    cursor: default;
+}
+
+        .container1 h3 {
+            margin: 0;
+            padding: 10px;
+            background-color: var(--main-color);
+            color: #011F5B;
+            text-align: center;
+        }
+
+        .container1 h1 {
+            margin: 0;
+            padding: 10px;
+            background-color: var(--main-color);
+            color: #011F5B;
+            text-align: center;
+            border-bottom: 5px ridge #C50900;
+        }
+
+        footer {
+            font-family: 'Roboto', sans-serif;
+            background-color: #011F5B;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 0px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            header nav {
+                margin-top: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div>
+            <h1>Economics Ph.D Students</h1>
+            <h2>University of Pretoria</h2>
+        </div>
+        <nav>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/index.html">Home</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/team.html">Team</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/JobMarket.html">Ph.D Students</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/WorkPpaer.html">Ph.D Research</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/Data.html">Economic Data</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/books.html">Virtual-Library</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/gallery.html" class="active">Templates</a>
+            <a href="file:///Users/blessingsnkuna/Documents/Django/WebpageTestWork/Templates/coll.html">Year-Plan 2025</a>
+        </nav>
+    </div>
+</header>
+
+<div class="content">
+    <div class="container1">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1> Templates</h1>
+        <p>Please find some cool templates for presentations, research papers and poster</p>
+
+        <h3>1. Presentations</h3>
+                    <p>Beamer 1: <a href="https://www.overleaf.com/login?id=35803615&latexEngine=pdflatex&mainFile=main.tex&templateName=Beamer%20Presentation&texImage=texlive-full%3A2024.1" target="_blank">Default Style</a></p>
+                    <p>Beamer 2: <a href="https://www.overleaf.com/login?id=63252973&latexEngine=pdflatex&mainFile=sample.tex&templateName=General%20Beamer%20Theme&texImage=texlive-full%3A2024.1" target="_blank">Singapore Theme</a></p>
+                    <p>Beamer 3: <a href="https://www.overleaf.com/login?id=1595291&mainFile=presentation_1.tex&templateName=Presentation%20template&texImage=texlive-full%3A2024.1" target="_blank">Blue Theme</a></p>
+                    <p>Beamer 4: <a href="https://deic.uab.cat/~iblanes/beamer_gallery/index_by_theme.html" target="_blank">All Themes</a></p>
+                <!-- More book items -->       <br>
+        <br>
+        <br>
+            <h3>2. Research Papers</h3>
+
+                    <p>Research Paper/Proposal: <a href="https://www.overleaf.com/latex/templates/tagged/academic-journal" target="_blank">Various Paper Templates</a></p>
+
+
+                <!-- More reference book items -->       <br>
+        <br>
+        <br>
+            <h3>3. Posters</h3>
+
+            <p>Poster Templates: <a href="https://www.overleaf.com/gallery/tagged/poster" target="_blank">Various Poster Templates</a></p>
+
+
+    </div>
+            <br>
+        <br>
+        <br>
+        <br>
+    <br>
+        <br>
+        <br>
+        <br>
+    <br>
+        <br>
+        <br>
+        <br>
+</div>
+
+
+<footer>
+    <p>cochairs@gmail.com for queries</p>
+</footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
